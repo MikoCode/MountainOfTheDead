@@ -57,10 +57,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      if(comboCount >= 2)
-        {
-            comboCount = 0;
-        }
+      
         Moving();
         Attacking();
         Jumping();
@@ -81,14 +78,19 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Mouse0) && isNotRunning == true)
             {
-                comboCount += 1;
-                if (comboCount == 1)
+               
+                
+                if (comboCount == 0)
                 {
+                    comboCount++;
+                    StartCoroutine("ComboTimer");
                     Instantiate(particle1, attackPos.position, Quaternion.identity);
+                    
                 }
-                else if (comboCount > 1)
+                else if (comboCount <= 2)
                 {
                     Instantiate(particle2, attackPos.position, Quaternion.identity);
+                    comboCount = 0;
                 }
 
 
@@ -296,6 +298,13 @@ public class PlayerController : MonoBehaviour
         
             
         
+    }
+
+
+    IEnumerator ComboTimer()
+    {
+        yield return new WaitForSeconds(1f);
+        comboCount = 0;
     }
 
 
