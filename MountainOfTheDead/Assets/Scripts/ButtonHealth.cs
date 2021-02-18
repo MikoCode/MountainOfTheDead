@@ -11,7 +11,7 @@ public class ButtonHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameObject.Find("GameManger").GetComponent<GameManager>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         playerHealth = GameObject.Find("Player").GetComponent<PlayerHealthManager>();
@@ -28,14 +28,14 @@ public class ButtonHealth : MonoBehaviour
     public void Health()
     {
         playerHealth.startHealth = playerHealth.startHealth * 1.1f;
-        gameManager.buttonHealth.enabled = false;
-        gameManager.buttonHealth.enabled = false;
+        gameManager.buttonHealth.SetActive(false);
+        gameManager.buttonDamage.SetActive(false); 
     }
 
    public void Damage()
     {
         playerController.damage = playerController.damage * 1.1f;
-        gameManager.buttonHealth.enabled = false;
-        gameManager.buttonHealth.enabled = false;
+        gameManager.buttonHealth.SetActive(false);
+        gameManager.buttonDamage.SetActive(false);
     }
 }

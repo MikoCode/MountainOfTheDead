@@ -14,6 +14,11 @@ public class PlayerController : MonoBehaviour
     public bool isImmortal;
     public GameObject Player;
     public BoxCollider2D boxCollider2D;
+    public ParticleSystem particle1;
+    public ParticleSystem particle2;
+    public float comboCount;
+    public float comboNumber;
+
 
     private bool facingLeft;
     private bool facingnRight;
@@ -34,6 +39,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        comboCount = 0;
         boxCollider2D = gameObject.GetComponent<BoxCollider2D>();
         isImmortal = false;
         times = 0.2f;
@@ -45,11 +51,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
+      if(comboCount >= 2)
+        {
+            comboCount = 0;
+        }
         Moving();
         Attacking();
         Jumping();
         Roll();
+        Combo();
        
     }
 
@@ -65,6 +75,17 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Mouse0) && isNotRunning == true)
             {
+                comboCount += 1;
+                if (comboCount == 1)
+                {
+                    Instantiate(particle1, attackPos.position, Quaternion.identity);
+                }
+                else if (comboCount > 1)
+                {
+                    Instantiate(particle2, attackPos.position, Quaternion.identity);
+                }
+
+
 
                 animator.SetTrigger("attack");
                 Collider2D[] grassToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsGrass);
@@ -239,6 +260,12 @@ public class PlayerController : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPos.position, attackRange);
+    }
+
+
+    void Combo()
+    {
+       
     }
 
     IEnumerator immortal(float times)

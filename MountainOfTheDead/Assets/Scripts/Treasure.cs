@@ -12,7 +12,7 @@ public class Treasure : MonoBehaviour
     {
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         playerHealth = GameObject.Find("Player").GetComponent<PlayerHealthManager>();
-        gameManager = GameObject.Find("GameManger").GetComponent<GameManager>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
 
     }
@@ -30,8 +30,11 @@ public class Treasure : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
             
         {
-            gameManager.buttonDamage.enabled = true;
-            gameManager.buttonHealth.enabled = true;
+            Debug.Log("treasure");
+
+            gameManager.buttonDamage.SetActive(true);
+            gameManager.buttonHealth.SetActive(true);
+            Destroy(gameObject, 0.5f);
         }
     }
 }

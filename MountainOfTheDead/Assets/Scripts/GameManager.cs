@@ -12,8 +12,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI potionsNumberText;
     public TextMeshProUGUI teaNumberText;
-    public Button buttonHealth;
-    public Button buttonDamage;
+    public GameObject buttonHealth;
+    public GameObject buttonDamage;
 
     public float TeaNumber;
     // Start is called before the first frame update
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         potionsNumberText.text = ("") + potionsNumber;
-        healthText.text = ("Health ") + pH.currentHealth;
+        healthText.text = ("Health ") + pH.currentHealth + ("/") + pH.startHealth;
         teaNumberText.text = ("") + TeaNumber;
     }
 }
