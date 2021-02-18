@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rigidbody;
     public Animator animator;
     public Transform attackPos;
+    public Transform highAttack;
+    public Transform normalAttack;
     public LayerMask whatIsEnemies;
     public LayerMask whatIsGrass;
     public float attackRange;
@@ -163,9 +165,21 @@ public class PlayerController : MonoBehaviour
 
     private void Moving()
     {
+
+
+
+        if (Input.GetKey("w"))
+        {
+            attackPos.position = highAttack.position;
+        }
+        else
+        {
+            attackPos.position = normalAttack.position;
+        }
         if (Input.GetKey("a") && Mathf.Abs(_rigidbody.velocity.y) < 0.005f && isBlocking == false)
         {
             animator.SetTrigger("RunAnimation");
+            
             isNotRunning = false;
             MovementSpeed = speed;
 
