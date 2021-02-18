@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI teaNumberText;
     public GameObject buttonHealth;
     public GameObject buttonDamage;
+    public GameObject buttonSpeed;
 
     public float TeaNumber;
     // Start is called before the first frame update

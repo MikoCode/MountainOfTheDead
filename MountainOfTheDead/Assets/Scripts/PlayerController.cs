@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
 
     private bool isBlocking;
     private float times;
+    public float speed;
+    public float slowerSpeed;
 
     public float MovementSpeed;
     private float JumpForce = 8f;
@@ -39,6 +41,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        speed = 9;
+        slowerSpeed = 6;
         comboCount = 0;
         boxCollider2D = gameObject.GetComponent<BoxCollider2D>();
         isImmortal = false;
@@ -163,14 +167,14 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetTrigger("RunAnimation");
             isNotRunning = false;
-            MovementSpeed = 9;
+            MovementSpeed = speed;
 
         }
 
         else if (Input.GetKey("d") && Mathf.Abs(_rigidbody.velocity.y) < 0.005f && isBlocking == false)
         {
             isNotRunning = false;
-            MovementSpeed = 9;
+            MovementSpeed = speed;
             animator.SetTrigger("RunAnimation");
 
         }
@@ -181,7 +185,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Mathf.Abs(_rigidbody.velocity.y) > 0.005f)
         {
-            MovementSpeed = 6;
+            MovementSpeed = slowerSpeed;
         }
        
        

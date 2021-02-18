@@ -34,6 +34,7 @@ public class Treasure : MonoBehaviour
 
             gameManager.buttonDamage.SetActive(true);
             gameManager.buttonHealth.SetActive(true);
+            gameManager.buttonSpeed.SetActive(true);
             Destroy(gameObject, 0.5f);
         }
     }

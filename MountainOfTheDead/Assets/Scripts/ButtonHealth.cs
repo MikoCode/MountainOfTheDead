@@ -29,7 +29,8 @@ public class ButtonHealth : MonoBehaviour
     {
         playerHealth.startHealth = playerHealth.startHealth * 1.1f;
         gameManager.buttonHealth.SetActive(false);
-        gameManager.buttonDamage.SetActive(false); 
+        gameManager.buttonDamage.SetActive(false);
+        gameManager.buttonSpeed.SetActive(false);
     }
 
    public void Damage()
@@ -37,5 +38,15 @@ public class ButtonHealth : MonoBehaviour
         playerController.damage = playerController.damage * 1.1f;
         gameManager.buttonHealth.SetActive(false);
         gameManager.buttonDamage.SetActive(false);
+        gameManager.buttonSpeed.SetActive(false);
+    }
+
+
+    public void Speed()
+    {
+        playerController.speed *= 1.10f;
+        gameManager.buttonHealth.SetActive(false);
+        gameManager.buttonDamage.SetActive(false);
+        gameManager.buttonSpeed.SetActive(false);
     }
 }
