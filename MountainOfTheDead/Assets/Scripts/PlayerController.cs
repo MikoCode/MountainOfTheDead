@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     public float startTimeBtwRoll;
     public float timeBtwAttack;
     public float startTimeBtwAttack;
-    public int damage;
+    public float damage;
     private float time = 0.2f;
 
     // Start is called before the first frame update

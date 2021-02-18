@@ -267,7 +267,7 @@ Transform:
   m_GameObject: {fileID: 1869637313466232721}
   m_LocalRotation: {x: -0, y: -0.6343157, z: -0, w: 0.77307415}
   m_LocalPosition: {x: 250.38, y: -4, z: 12.574455}
-  m_LocalScale: {x: 0.87, y: 0.87, z: 0.87}
+  m_LocalScale: {x: 0.93, y: 0.93, z: 0.93}
   m_Children:
   - {fileID: 6814348431224010077}
   - {fileID: 1025919583121206245}
@@ -313,7 +313,6 @@ MonoBehaviour:
   arrow: {fileID: 4052681621687674080, guid: c710beed7482ba4439ae3fb0b4f17458, type: 3}
   speed: 0
   timeBtwShots: 0
-  startTimeBtwShots: 1
   didShot: 0
 --- !u!61 &1527600891474843758
 BoxCollider2D:

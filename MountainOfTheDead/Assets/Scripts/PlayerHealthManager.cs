@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerHealthManager : MonoBehaviour
 {
-    public int currentHealth;
-    public int startHealth;
+    public float currentHealth;
+    public float startHealth;
     private GameManager gameManager;
     public Animator animator;
     private float times = 1.2f;
@@ -26,6 +26,12 @@ public class PlayerHealthManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
+        if(currentHealth >= startHealth)
+        {
+            currentHealth = startHealth;
+        }
         usePotion();
         if(currentHealth <= 0)
         {

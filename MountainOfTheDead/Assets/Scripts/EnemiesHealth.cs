@@ -27,7 +27,7 @@ public class EnemiesHealth : MonoBehaviour
 
 
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         
         currentHealth -= damage;
