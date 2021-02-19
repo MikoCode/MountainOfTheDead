@@ -7,7 +7,7 @@ public class Arrow : MonoBehaviour
     private Rigidbody rb;
     public float speed;
     private Transform player;
-    private Vector2 target;
+    private Vector3 target;
 
     private PowerUps powerUps;
     private PlayerHealthManager playerHealth;
@@ -20,7 +20,7 @@ public class Arrow : MonoBehaviour
         playerHealth = GameObject.Find("Player").GetComponent<PlayerHealthManager>();
         playerCon = GameObject.Find("Player").GetComponent<PlayerController>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        target = new Vector2(player.position.x, player.position.y + 1.5f);
+        target = new Vector3(player.position.x, player.position.y + 1.5f, player.position.z);
         
         
     }
@@ -53,7 +53,7 @@ public class Arrow : MonoBehaviour
 
 
 
-        transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
     }
 
 

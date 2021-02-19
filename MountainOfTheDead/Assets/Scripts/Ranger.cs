@@ -118,7 +118,7 @@ public class Ranger : MonoBehaviour
         }
         else if( Distance <= 3)
         {
-            startTimeBtwShots = 3;
+            startTimeBtwShots = 3.5f;
             animator.SetBool("Shoot", true);
             if (timeBtwShots <= 0 && didShot == false && eH.takingDamage == false)
             {
@@ -169,7 +169,7 @@ public class Ranger : MonoBehaviour
 
             if(animator.GetBool("Run") == true)
             {
-                StartCoroutine(Execute(times));
+                Move();
             }
            
             
@@ -226,9 +226,9 @@ public class Ranger : MonoBehaviour
 
 
 
-    IEnumerator Execute(float times) // Actuall Moving,but delayed to fit the animation
+    void Move()
     {
-        yield return new WaitForSeconds(times);
+       
         transform.position += new Vector3(followDistance, 0, 0) * Time.deltaTime * speed;
     }
 

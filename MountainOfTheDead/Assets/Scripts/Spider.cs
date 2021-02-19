@@ -33,7 +33,7 @@ public class Spider : MonoBehaviour
         letAlone = 20;
         startHealth = 100;
         currentHealth = startHealth;
-        eH = GameObject.Find("Spider").GetComponent<EnemiesHealth>();
+
     }
 
     // Update is called once per frame
