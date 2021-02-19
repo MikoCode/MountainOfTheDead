@@ -30,6 +30,6 @@ public class CameraFollow : MonoBehaviour
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothFactor * Time.fixedDeltaTime);
         transform.position = smoothedPosition;
         transform.LookAt(target);
-        gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+        gameObject.transform.rotation = Quaternion.Euler(0, 5f, 0);
     }
 }
