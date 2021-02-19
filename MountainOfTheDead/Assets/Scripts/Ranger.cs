@@ -34,6 +34,7 @@ public class Ranger : MonoBehaviour
     private float random2;
     private float random3;
     private float random4;
+    private EnemiesHealth eH;
    
     
     private bool rotated;
@@ -42,10 +43,11 @@ public class Ranger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        random1 = Random.Range(10, 14);
-        random2 = Random.Range(22, 23);
-             random3 = Random.Range(3, 7);
-        random4 = Random.Range(21, 28);
+        eH = gameObject.GetComponent<EnemiesHealth>();
+        random1 = Random.Range(14, 18);
+        random2 = Random.Range(26, 27);
+             random3 = Random.Range(10, 14);
+        random4 = Random.Range(25, 32);
         powerUps = GameObject.Find("Player").GetComponent<PowerUps>();
         didShot = false;
         times = 0f;
@@ -78,7 +80,7 @@ public class Ranger : MonoBehaviour
         playerPos = GameObject.Find("Player").transform;
         
         FirstRotation();
-        shootDistance =  13; // Making some distances random,to make it less predictable
+        shootDistance =  25; // Making some distances random,to make it less predictable
 
         Moving();
         distanceToFollow = -4;
@@ -97,7 +99,7 @@ public class Ranger : MonoBehaviour
     {
 
         Distance = Mathf.Abs(playerPos.position.x - currentTransform.position.x);
-        if(Distance <= shootDistance && Distance > 3 && animator.GetBool("Run") == false)
+        if(Distance <= shootDistance && Distance > 3 && animator.GetBool("Run") == false && eH.takingDamage == false)
         {
             startTimeBtwShots = 1;
             animator.SetBool("Shoot", true);
@@ -118,7 +120,7 @@ public class Ranger : MonoBehaviour
         {
             startTimeBtwShots = 3;
             animator.SetBool("Shoot", true);
-            if (timeBtwShots <= 0 && didShot == false)
+            if (timeBtwShots <= 0 && didShot == false && eH.takingDamage == false)
             {
                 Instantiate(arrow, arrowPos.position, Quaternion.identity);
                 timeBtwShots = startTimeBtwShots;
@@ -229,6 +231,10 @@ public class Ranger : MonoBehaviour
         yield return new WaitForSeconds(times);
         transform.position += new Vector3(followDistance, 0, 0) * Time.deltaTime * speed;
     }
+
+
+
+   
 
 
 

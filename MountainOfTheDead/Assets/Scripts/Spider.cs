@@ -121,7 +121,7 @@ public class Spider : MonoBehaviour
             
             
             animator.SetBool("Run", true);
-            transform.position = Vector3.MoveTowards(transform.position,new Vector3 ( playerPos.position.x,transform.position.y), speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position,new Vector3 ( playerPos.position.x,transform.position.y,transform.position.z), speed * Time.deltaTime);
 
         }
        

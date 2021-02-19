@@ -9,8 +9,10 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public Transform attackPos;
     public Transform highAttack;
+    public Transform lowAttack;
     public Transform normalAttack;
     public LayerMask whatIsEnemies;
+    public LayerMask whatIsArrow;
     public LayerMask whatIsGrass;
     public float attackRange;
     public bool isImmortal;
@@ -106,15 +108,20 @@ public class PlayerController : MonoBehaviour
                 for (int i = 0; i <enemiesToDamage.Length; i++)
                 {
                     enemiesToDamage[i].GetComponent<EnemiesHealth>().TakeDamage(damage);
-                    
-
-
-
-
-
 
                 }
-                if(facingLeft == true) // Moving player a little when he attack
+
+
+                Collider2D[] arrowToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsArrow);
+                for (int i = 0; i < arrowToDamage.Length; i++)
+                {
+                    arrowToDamage[i].GetComponent<Arrow>().Destruction();
+                }
+
+
+
+
+                if (facingLeft == true) // Moving player a little when he attack
                 {
                     transform.position += new Vector3(-1f, 0, 0) * Time.deltaTime * MovementSpeed;
                 }
@@ -173,6 +180,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey("w"))
         {
             attackPos.position = highAttack.position;
+        }
+
+        else if (Input.GetKey("s"))
+        {
+            attackPos.position = lowAttack.position;
         }
         else
         {

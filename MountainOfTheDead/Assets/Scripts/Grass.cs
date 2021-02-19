@@ -9,8 +9,8 @@ public class Grass : MonoBehaviour
     public bool spawnedleaf;
     private float chances;
 
-    private Vector2 leafPos;
-    private Vector2 leafPos2;
+    private Vector3 leafPos;
+    private Vector3 leafPos2;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,8 +21,8 @@ public class Grass : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        leafPos = new Vector2(transform.position.x + Random.Range(0.1f,0.98f), transform.position.y + 2);
-        leafPos2 = new Vector2(transform.position.x - Random.Range(0.1f,0.98f), transform.position.y + 2);
+        leafPos = new Vector3(transform.position.x + Random.Range(0.1f,0.98f), transform.position.y + 2,transform.position.z);
+        leafPos2 = new Vector3(transform.position.x - Random.Range(0.1f,0.98f), transform.position.y + 2,transform.position.z);
     }
 
 

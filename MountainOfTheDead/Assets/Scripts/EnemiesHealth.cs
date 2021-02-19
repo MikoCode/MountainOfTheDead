@@ -9,12 +9,12 @@ public class EnemiesHealth : MonoBehaviour
     public Animator rangerAnim;
     public bool isDead;
     public bool takingDamage;
-   
+    
     // Start is called before the first frame update
     void Start()
     {
         takingDamage = false;
-
+        
         currentHealth = startingHealth; 
         isDead = false;
     }
@@ -29,7 +29,8 @@ public class EnemiesHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        
+
+        StartCoroutine("StopAttack");
         currentHealth -= damage;
         rangerAnim.SetTrigger("takeDamage");
         Debug.Log("TakeDamage");
@@ -42,6 +43,12 @@ public class EnemiesHealth : MonoBehaviour
             
         }
 
+    }
+    IEnumerator StopAttack()
+    {
+        takingDamage = true;
+        yield return new WaitForSeconds(1f);
+        takingDamage = false;
     }
 
 }

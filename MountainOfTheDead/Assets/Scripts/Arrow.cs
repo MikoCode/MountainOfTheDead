@@ -32,11 +32,11 @@ public class Arrow : MonoBehaviour
 
         if(powerUps.slowingTime == true)
         {
-            speed = 5;
+            speed = 7.5f;
         }
         else if(powerUps.slowingTime == false)
         {
-            speed = 10;
+            speed = 15;
         }
 
         if (transform.position.x == target.x && transform.position.y == target.y)
@@ -71,5 +71,27 @@ public class Arrow : MonoBehaviour
 
         }
         
+    }
+
+
+
+
+    public void Destruction()
+    {
+
+        Destroy(gameObject);
+       
+
+
+
+
+
+
+
+        
+
+        
+
+
     }
 }
