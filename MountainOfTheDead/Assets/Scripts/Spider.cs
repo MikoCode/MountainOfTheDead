@@ -59,7 +59,7 @@ public class Spider : MonoBehaviour
         Attack();
         playerPos = GameObject.Find("Player").GetComponent<Transform>();
         RotateToPlayer();
-        Distance = Mathf.Abs(playerPos.position.x - transform.position.x);
+        Distance = Vector3.Distance(playerPos.position, transform.position);
         Moving();
     }
 

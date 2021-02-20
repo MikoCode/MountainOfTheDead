@@ -64,7 +64,7 @@ public class Arrow : MonoBehaviour
         {
             if(playerCon.isImmortal == false)
             {
-                playerHealth.currentHealth -= 25;
+                playerHealth.currentHealth -= 15;
                 Debug.Log("PlayerHit");
 
             }

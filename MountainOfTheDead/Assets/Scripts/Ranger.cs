@@ -19,7 +19,7 @@ public class Ranger : MonoBehaviour
     public  Animator animator;
     public Transform arrowPos;
     public GameObject arrow;
-    private float Distance;
+    public float Distance;
     private float followDistance;
     public float speed;
     private float shootDistance;
@@ -98,7 +98,7 @@ public class Ranger : MonoBehaviour
     private void Attack()
     {
 
-        Distance = Mathf.Abs(playerPos.position.x - currentTransform.position.x);
+        Distance = Vector3.Distance(playerPos.position, transform.position);
         if(Distance <= shootDistance && Distance > 3 && animator.GetBool("Run") == false && eH.takingDamage == false)
         {
             startTimeBtwShots = 1;

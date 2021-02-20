@@ -22,10 +22,11 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem particle2;
     public float comboCount;
     public float comboNumber;
+    public Transform aim;
 
 
-    private bool facingLeft;
-    private bool facingnRight;
+    public bool facingLeft;
+    public bool facingnRight;
     private bool isNotRunning;
 
     private bool isBlocking;
@@ -50,7 +51,7 @@ public class PlayerController : MonoBehaviour
         comboCount = 0;
         boxCollider2D = gameObject.GetComponent<BoxCollider2D>();
         isImmortal = false;
-        times = 0.2f;
+        times = 0.6f;
         facingLeft = false;
         facingnRight = true;
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -59,7 +60,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
+        aim.position = new Vector3(attackPos.position.x, attackPos.position.y, 8f);
         Moving();
         Attacking();
         Jumping();
@@ -221,15 +222,15 @@ public class PlayerController : MonoBehaviour
         transform.position += new Vector3(movement, 0, 0) * Time.deltaTime * MovementSpeed;
         if (Input.GetKey("a") && facingLeft == false)
         {
-            
-            transform.Rotate(Vector3.up, 180);
+
+            gameObject.transform.rotation = Quaternion.Euler(0, -100f, 0);
             facingLeft = true;
             facingnRight = false;
 
         }
         if (Input.GetKey("d") && facingnRight == false)
         {
-            transform.Rotate(Vector3.up, 180);
+            gameObject.transform.rotation = Quaternion.Euler(0, 100f, 0);
             facingnRight = true;
             facingLeft = false;
             

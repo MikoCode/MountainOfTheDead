@@ -7,18 +7,23 @@ public class CameraFollow : MonoBehaviour
     public Transform target;
     public float smoothSpeed = 0.05f;
     [Range(1, 10)]
+   
     public float smoothFactor;
+  
+  
 
     public Vector3 offset;
     // Start is called before the first frame update
     void Start()
     {
-      
+        
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+
+        
         Follow();
     }
 
@@ -30,6 +35,6 @@ public class CameraFollow : MonoBehaviour
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothFactor * Time.fixedDeltaTime);
         transform.position = smoothedPosition;
         transform.LookAt(target);
-        gameObject.transform.rotation = Quaternion.Euler(0, 5f, 0);
+        gameObject.transform.rotation = Quaternion.Euler(0, 3f, 0);
     }
 }
