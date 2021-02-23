@@ -9,12 +9,13 @@ public class Spider : MonoBehaviour
     public Animator animator;
     private PowerUps powerUps;
     private bool rotated;
-    private float Distance;
+    public float Distance;
     private float stoppingDistance;
     public float  speed;
-    private float letAlone;
+    public float letAlone;
     public float currentHealth;
     private float startHealth;
+    public ParticleSystem particle1;
     public EnemiesHealth eH;
     public float startTimeBtwAttack;
     private bool didAttack;
@@ -23,6 +24,7 @@ public class Spider : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Distance = 4;
         powerUps = GameObject.Find("Player").GetComponent<PowerUps>();
         didAttack = false;
         TimeBtwAttack = startTimeBtwAttack;
@@ -30,7 +32,7 @@ public class Spider : MonoBehaviour
         pH = GameObject.Find("Player").GetComponent<PlayerHealthManager>();
         speed = 5;
         stoppingDistance = 2;
-        letAlone = 20;
+        
         startHealth = 100;
         currentHealth = startHealth;
 
@@ -109,12 +111,12 @@ public class Spider : MonoBehaviour
             if (powerUps.slowingTime == false)
             {
                 animator.speed = 1f;
-                speed = 5;
+                speed = 10;
             }
             else if(powerUps.slowingTime == true)
             {
                 animator.speed = 0.5f;
-                speed = 2.5f;
+                speed = 5f;
             }
             
            
@@ -130,28 +132,23 @@ public class Spider : MonoBehaviour
     void Attack() // if Close Enough,attack the player
 
     {
-        if(Distance <= 2.33f)
+        if(Distance <= 3.3f)
         {
-            if(TimeBtwAttack <= 0 && didAttack== false && powerUps.slowingTime == false)
+            if( didAttack== false  )
             {
+                Instantiate(particle1, new Vector3 (transform.position.x,transform.position.y+ 3f,transform.position.z) , Quaternion.identity);
                 didAttack = true;
-                pH.currentHealth -= 10;
-                TimeBtwAttack = startTimeBtwAttack;
+                pH.currentHealth -= 30;
+                Destroy(gameObject);
+                
             }
-            else
-            {
-                didAttack = false;
-                TimeBtwAttack -= Time.deltaTime;
-            }
+            
 
 
 
-            animator.SetBool("Attack", true);
+           
         }
-        else if ( Distance > 2.33f)
-        {
-            animator.SetBool("Attack", false);
-        }
+        
     }
     
 

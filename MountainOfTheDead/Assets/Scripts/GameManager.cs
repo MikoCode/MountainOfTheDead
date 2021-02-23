@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +17,7 @@ public class GameManager : MonoBehaviour
     public GameObject buttonHealth;
     public GameObject buttonDamage;
     public GameObject buttonSpeed;
+    public SceneManager sceneManager;
 
     public float TeaNumber;
     // Start is called before the first frame update
@@ -33,4 +36,7 @@ public class GameManager : MonoBehaviour
         healthText.text = ("Health ") + pH.currentHealth + ("/") + pH.startHealth;
         teaNumberText.text = ("") + TeaNumber;
     }
+
+
+    
 }

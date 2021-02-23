@@ -1349,10 +1349,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 4878374166940028949}
+  Distance: 0
   speed: 0
+  letAlone: 30
   currentHealth: 100
+  particle1: {fileID: 496143953972698401, guid: 345fbb963a7bbc4449d3734525299bc2,
+    type: 3}
   eH: {fileID: 0}
-  startTimeBtwAttack: 1
+  startTimeBtwAttack: 0.3
   TimeBtwAttack: 0
 --- !u!114 &4878374166940028947
 MonoBehaviour:
@@ -1371,6 +1375,8 @@ MonoBehaviour:
   rangerAnim: {fileID: 4878374166940028949}
   isDead: 0
   takingDamage: 0
+  hP: {fileID: 5811320911061618697, guid: 3a4e33599261d844bb9554a8423491d6, type: 3}
+  randomNumber: 0
 --- !u!1 &5832564478495542303
 GameObject:
   m_ObjectHideFlags: 0

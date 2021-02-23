@@ -43,6 +43,7 @@ public class Ranger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        startTimeBtwShots = 0.8f;
         eH = gameObject.GetComponent<EnemiesHealth>();
         random1 = Random.Range(14, 18);
         random2 = Random.Range(26, 27);
@@ -73,11 +74,11 @@ public class Ranger : MonoBehaviour
         if (gameObject.GetComponent<EnemiesHealth>().currentHealth <= 0)
         {
             gameObject.GetComponent<Ranger>().enabled = false;
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+           
         }
 
         currentTransform = transform;
-        playerPos = GameObject.Find("Player").transform;
+        playerPos = GameObject.Find("Player").GetComponent<Transform>().transform;
         
         FirstRotation();
         shootDistance =  25; // Making some distances random,to make it less predictable
@@ -101,7 +102,7 @@ public class Ranger : MonoBehaviour
         Distance = Vector3.Distance(playerPos.position, transform.position);
         if(Distance <= shootDistance && Distance > 3 && animator.GetBool("Run") == false && eH.takingDamage == false)
         {
-            startTimeBtwShots = 1;
+            startTimeBtwShots = 0.8f;
             animator.SetBool("Shoot", true);
             if (timeBtwShots <= 0 && didShot == false)
             {

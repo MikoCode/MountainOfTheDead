@@ -9,7 +9,8 @@ public class EnemiesHealth : MonoBehaviour
     public Animator rangerAnim;
     public bool isDead;
     public bool takingDamage;
-    
+    public GameObject hP;
+    public int randomNumber;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +23,7 @@ public class EnemiesHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        randomNumber = Random.Range(1, 10);
     }
 
 
@@ -37,9 +38,9 @@ public class EnemiesHealth : MonoBehaviour
         if (currentHealth <= 0 && isDead == false) 
         {
             isDead = true;
-
+            StartCoroutine("DropPotion");
             rangerAnim.SetTrigger("Dead");
-            Destroy(gameObject, 2f);
+            Destroy(gameObject, 1.5f);
             
         }
 
@@ -49,6 +50,15 @@ public class EnemiesHealth : MonoBehaviour
         takingDamage = true;
         yield return new WaitForSeconds(1f);
         takingDamage = false;
+    }
+    IEnumerator DropPotion()
+    {
+        yield return new WaitForSeconds(1.2f);
+        if(randomNumber >= 8 )
+        {
+            Instantiate(hP, transform.position, Quaternion.identity);
+        }
+        
     }
 
 }

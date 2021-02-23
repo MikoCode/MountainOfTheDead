@@ -16,6 +16,7 @@ public class Arrow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Destroy(gameObject, 4);
         powerUps = GameObject.Find("Player").GetComponent<PowerUps>();
         playerHealth = GameObject.Find("Player").GetComponent<PlayerHealthManager>();
         playerCon = GameObject.Find("Player").GetComponent<PlayerController>();
