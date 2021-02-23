@@ -54,7 +54,7 @@ public class EnemiesHealth : MonoBehaviour
     IEnumerator DropPotion()
     {
         yield return new WaitForSeconds(1.2f);
-        if(randomNumber >= 8 )
+        if(randomNumber >= 9 )
         {
             Instantiate(hP, transform.position, Quaternion.identity);
         }

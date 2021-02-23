@@ -9,7 +9,7 @@ public class PowerUps : MonoBehaviour
     private Arrow arrow;
     private Ranger ranger;
     private float times;
-    private GameManager gameManager;
+    public GameManager gameManager;
     public bool slowingTime;
     // Start is called before the first frame update
     void Start()

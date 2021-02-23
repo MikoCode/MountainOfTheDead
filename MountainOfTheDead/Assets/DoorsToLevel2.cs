@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using TMPro;
+using UnityEngine.UI;
 
 public class DoorsToLevel2 : MonoBehaviour
 {
@@ -10,22 +12,38 @@ public class DoorsToLevel2 : MonoBehaviour
     public KeyCode interactKey;
     public float Keys;
     public GameObject doors;
+    private int numberInDoors;
+    public TextMeshProUGUI findKeysText;
+    public TextMeshProUGUI keysNumber;
+    public TextMeshProUGUI useEText;
+    public TextMeshProUGUI thankYouText;
 
     // Start is called before the first frame update
     void Start()
     {
+        numberInDoors = 0;
         Keys = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        keysNumber.text = "" + Keys;
         if(isInRange == true && Keys == 3)
         {
+            
             if (Input.GetKey(interactKey))
             {
+                useEText.gameObject.SetActive(false);
+                thankYouText.gameObject.SetActive(true);
                 Destroy(doors);
+               
             }
+        }
+       if(isInRange == true && numberInDoors == 0)
+        {
+            numberInDoors += 1;
+            StartCoroutine("showObjective");
         }
     }
 
@@ -40,5 +58,18 @@ public class DoorsToLevel2 : MonoBehaviour
             Debug.Log("InRange");
 
         }
+        else
+        {
+            isInRange = false;
+        }
+    }
+
+
+   IEnumerator showObjective()
+    {
+        findKeysText.gameObject.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        findKeysText.gameObject.SetActive(false);
+        keysNumber.gameObject.SetActive(true);
     }
 }
