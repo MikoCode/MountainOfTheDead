@@ -27,4 +27,10 @@ public class LoadAndQuit : MonoBehaviour
         Debug.Log("Quit");
         Application.Quit();
     }
+
+
+    public void LoadSettings()
+    {
+        SceneManager.LoadScene("Settings");
+    }
 }

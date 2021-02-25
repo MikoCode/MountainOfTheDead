@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class spikeTrap : MonoBehaviour
 {
-    private GameObject player;
+    private PlayerHealthManager player;
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player");
+        player = GameObject.Find("Player").GetComponent<PlayerHealthManager>();
+        
     }
 
     // Update is called once per frame
@@ -25,7 +26,7 @@ public class spikeTrap : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(player);
+            player.currentHealth = 0;
               
         }
     }
