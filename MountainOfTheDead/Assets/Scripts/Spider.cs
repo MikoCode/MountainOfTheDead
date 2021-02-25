@@ -5,21 +5,23 @@ using UnityEngine;
 public class Spider : MonoBehaviour
 {
     private Transform playerPos;
-    private Spider spider;
-    public Animator animator;
     private PowerUps powerUps;
-    private bool rotated;
-    public float Distance;
+    public  ParticleSystem particle1;
+    public  EnemiesHealth eH;
+    public  Animator animator;
+  
+    
+    public  float Distance;
     private float stoppingDistance;
-    public float  speed;
-    public float letAlone;
-    public float currentHealth;
+    public  float  speed;
+    public  float letAlone;
+    public  float currentHealth;
     private float startHealth;
-    public ParticleSystem particle1;
-    public EnemiesHealth eH;
-    public float startTimeBtwAttack;
+    
+    public  float startTimeBtwAttack;
     private bool didAttack;
-        public float TimeBtwAttack;
+    private bool rotated;
+    public  float TimeBtwAttack;
     private PlayerHealthManager pH;
     // Start is called before the first frame update
     void Start()
@@ -28,7 +30,7 @@ public class Spider : MonoBehaviour
         powerUps = GameObject.Find("Player").GetComponent<PowerUps>();
         didAttack = false;
         TimeBtwAttack = startTimeBtwAttack;
-       
+        playerPos = GameObject.Find("Player").GetComponent<Transform>();
         pH = GameObject.Find("Player").GetComponent<PlayerHealthManager>();
         speed = 5;
         stoppingDistance = 2;
@@ -59,7 +61,7 @@ public class Spider : MonoBehaviour
 
         
         Attack();
-        playerPos = GameObject.Find("Player").GetComponent<Transform>();
+        
         RotateToPlayer();
         Distance = Vector3.Distance(playerPos.position, transform.position);
         Moving();
@@ -132,13 +134,13 @@ public class Spider : MonoBehaviour
     void Attack() // if Close Enough,attack the player
 
     {
-        if(Distance <= 3.3f)
+        if(Distance <= 3.5f)
         {
             if( didAttack== false  )
             {
                 Instantiate(particle1, new Vector3 (transform.position.x,transform.position.y+ 3f,transform.position.z) , Quaternion.identity);
                 didAttack = true;
-                pH.currentHealth -= 30;
+                pH.currentHealth -= 20;
                 Destroy(gameObject);
                 
             }

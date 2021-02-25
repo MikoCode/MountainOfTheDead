@@ -8,15 +8,26 @@ using UnityEngine.UI;
 public class DoorsToLevel2 : MonoBehaviour
 {
 
-    public bool isInRange;
-    public KeyCode interactKey;
-    public float Keys;
-    public GameObject doors;
+    public  bool isInRange;
+
+    public  KeyCode interactKey;
+
     private int numberInDoors;
-    public TextMeshProUGUI findKeysText;
-    public TextMeshProUGUI keysNumber;
-    public TextMeshProUGUI useEText;
-    public TextMeshProUGUI thankYouText;
+
+    public  int Keys;
+
+    public  GameObject doors;
+
+    public  Button quit;
+    public  Button playAgain;
+   
+    public  TextMeshProUGUI findKeysText;
+
+    public  TextMeshProUGUI keysNumber;
+
+    public  TextMeshProUGUI useEText;
+
+    public  TextMeshProUGUI thankYouText;
 
     // Start is called before the first frame update
     void Start()
@@ -31,11 +42,13 @@ public class DoorsToLevel2 : MonoBehaviour
         keysNumber.text = "" + Keys;
         if(isInRange == true && Keys == 3)
         {
-            
+            Debug.Log("Ready");
             if (Input.GetKey(interactKey))
             {
                 useEText.gameObject.SetActive(false);
                 thankYouText.gameObject.SetActive(true);
+                playAgain.gameObject.SetActive(true);
+                quit.gameObject.SetActive(true);
                 Destroy(doors);
                
             }

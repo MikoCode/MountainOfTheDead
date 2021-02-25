@@ -277,10 +277,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCon: {fileID: 0}
-  playerPos: {fileID: 0}
   animator: {fileID: 1527600891566076357}
-  arrowPos: {fileID: 4150367072569861739}
   arrow: {fileID: 4052681621687674080, guid: c710beed7482ba4439ae3fb0b4f17458, type: 3}
+  startPlayerPos: {fileID: 0}
+  arrowPos: {fileID: 4150367072569861739}
   Distance: 0
   speed: 0
   timeBtwShots: 0
@@ -298,7 +298,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -16.393957, y: 1.171286}
+  m_Offset: {x: -0.7052473, y: 1.171286}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -309,7 +309,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 63.256657, y: 3.342572}
+  m_Size: {x: 6.048127, y: 3.342572}
   m_EdgeRadius: 0
 --- !u!114 &1527600891474843759
 MonoBehaviour:
@@ -323,12 +323,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c786621a86d6506488c504fb73385a78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hP: {fileID: 5811320911061618697, guid: 3a4e33599261d844bb9554a8423491d6, type: 3}
   currentHealth: 0
   startingHealth: 100
   rangerAnim: {fileID: 1527600891566076357}
   isDead: 0
   takingDamage: 0
-  hP: {fileID: 5811320911061618697, guid: 3a4e33599261d844bb9554a8423491d6, type: 3}
   randomNumber: 0
 --- !u!1 &2192802338532649561
 GameObject:

@@ -12,7 +12,6 @@ public class ButtonHealth : MonoBehaviour
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         playerHealth = GameObject.Find("Player").GetComponent<PlayerHealthManager>();
     }

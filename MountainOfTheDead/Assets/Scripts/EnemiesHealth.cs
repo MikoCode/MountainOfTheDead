@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class EnemiesHealth : MonoBehaviour
 {
+    public GameObject hP;
+
     public float currentHealth;
     public float startingHealth;
+
     public Animator rangerAnim;
+
     public bool isDead;
     public bool takingDamage;
-    public GameObject hP;
+   
     public int randomNumber;
     // Start is called before the first frame update
     void Start()

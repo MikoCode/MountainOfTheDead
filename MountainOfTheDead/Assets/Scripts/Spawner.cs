@@ -7,9 +7,14 @@ public class Spawner : MonoBehaviour
 
     public GameObject Ranger;
     public GameObject Spider;
-    public float enemiesSpawned;
+   
     public Transform Player;
+
+
     public BoxCollider2D box2d;
+
+
+    public float enemiesSpawned;
     private float distanceFromPlayer;
     private float chances;
 
@@ -27,14 +32,14 @@ public class Spawner : MonoBehaviour
         chances = Random.Range(1, 3);
         if(chances == 1)
         {
-            distanceFromPlayer = 25;
+            distanceFromPlayer = -25;
         }
         else
         {
-            distanceFromPlayer = -25;
+            distanceFromPlayer = 25;
         }
-        if(enemiesSpawned >= 10)
-        {
+        if(enemiesSpawned >= 15)
+        {       
             CancelInvoke();
         }
     }

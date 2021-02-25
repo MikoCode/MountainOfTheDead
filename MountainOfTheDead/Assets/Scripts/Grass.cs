@@ -7,14 +7,14 @@ public class Grass : MonoBehaviour
     public ParticleSystem grassParticle;
     public GameObject leaf;
     public bool spawnedleaf;
-    private float chances;
+  
 
     private Vector3 leafPos;
     private Vector3 leafPos2;
     // Start is called before the first frame update
     void Start()
     {
-        chances = Random.Range(1, 10);
+                     
         spawnedleaf = false;
     }
 

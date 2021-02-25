@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
-    private Rigidbody rb;
-    public float speed;
+    
     private Transform player;
-    private Vector3 target;
-
     private PowerUps powerUps;
     private PlayerHealthManager playerHealth;
     private PlayerController playerCon;
-   
+
+    private Vector3 target;
+
+    public float speed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -65,7 +66,7 @@ public class Arrow : MonoBehaviour
         {
             if(playerCon.isImmortal == false)
             {
-                playerHealth.currentHealth -= 15;
+                playerHealth.currentHealth -= 10;
                 Debug.Log("PlayerHit");
 
             }

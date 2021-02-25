@@ -7,32 +7,44 @@ public class PlayerController : MonoBehaviour
  
     private Rigidbody2D _rigidbody;
     public Animator animator;
+
+
     public Transform attackPos;
     public Transform highAttack;
     public Transform lowAttack;
     public Transform normalAttack;
-    public LayerMask whatIsEnemies;
-    public LayerMask whatIsArrow;
-    public LayerMask whatIsGrass;
-    public float attackRange;
-    public bool isImmortal;
-    public GameObject Player;
-    public BoxCollider2D boxCollider2D;
-    public ParticleSystem particle1;
-    public ParticleSystem particle2;
-    public float comboCount;
-    public float comboNumber;
     public Transform aim;
 
 
+    public LayerMask whatIsEnemies;
+    public LayerMask whatIsArrow;
+    public LayerMask whatIsGrass;
+
+
+   
+    public GameObject Player;
+    public BoxCollider2D boxCollider2D;
+
+
+    public ParticleSystem particle1;
+    public ParticleSystem particle2;
+
+
+
+    public bool isImmortal;
     public bool facingLeft;
     public bool facingnRight;
     private bool isNotRunning;
-
     private bool isBlocking;
+
+
+    public float attackRange;
     private float times;
+    public float comboCount;
+    public float comboNumber;
     public float speed;
     public float slowerSpeed;
+
 
     public float MovementSpeed;
     private float JumpForce = 8f;

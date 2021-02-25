@@ -13,46 +13,53 @@ public class Ranger : MonoBehaviour
 
     public  PlayerController playerCon;
     private PowerUps powerUps;
-    public  Transform playerPos;
-    private Transform currentTransform;
-    private Transform newTransform;
     public  Animator animator;
-    public Transform arrowPos;
-    public GameObject arrow;
-    public float Distance;
+    public  GameObject arrow;
+    private Ranger ranger;
+
+
+    public  Transform startPlayerPos;
+    private Transform playerPos;
+    private Transform currentTransform;
+   
+    public  Transform arrowPos;
+
+  
+    public  float Distance;
     private float followDistance;
-    public float speed;
+    public  float speed;
     private float shootDistance;
     private float distanceToFollow;
     private float positiveDistanceToFollow;
-    private float times;
-    private float seconds;
-    public float timeBtwShots;
+    public  float timeBtwShots;
     private float startTimeBtwShots;
-    public bool didShot;
-    private float random1;
-    private float random2;
-    private float random3;
-    private float random4;
+  
+
+    private int random1;
+    private int random2;
+    private int random3;
+    private int random4;
     private EnemiesHealth eH;
    
-    
+
+
     private bool rotated;
-    private bool secondRotation;
-    
+    public bool didShot;
+
     // Start is called before the first frame update
     void Start()
     {
+        playerPos = GameObject.Find("Player").GetComponent<Transform>();
+        ranger = gameObject.GetComponent<Ranger>();
         startTimeBtwShots = 0.8f;
         eH = gameObject.GetComponent<EnemiesHealth>();
         random1 = Random.Range(14, 18);
         random2 = Random.Range(26, 27);
-             random3 = Random.Range(10, 14);
+        random3 = Random.Range(10, 14);
         random4 = Random.Range(25, 32);
         powerUps = GameObject.Find("Player").GetComponent<PowerUps>();
         didShot = false;
-        times = 0f;
-        
+       
         speed = 2;
         timeBtwShots = startTimeBtwShots;
         
@@ -71,14 +78,15 @@ public class Ranger : MonoBehaviour
         {
             animator.speed = 0.5f;
         }
-        if (gameObject.GetComponent<EnemiesHealth>().currentHealth <= 0)
+        if ( eH.currentHealth <= 0)
         {
-            gameObject.GetComponent<Ranger>().enabled = false;
+            Debug.Log("Dead");
+            ranger.enabled = false;
            
         }
 
         currentTransform = transform;
-        playerPos = GameObject.Find("Player").GetComponent<Transform>().transform;
+       
         
         FirstRotation();
         shootDistance =  25; // Making some distances random,to make it less predictable

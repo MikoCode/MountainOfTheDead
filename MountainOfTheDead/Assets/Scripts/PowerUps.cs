@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class PowerUps : MonoBehaviour
 {
-    private PlayerController playerCon;
-    private Spider spider;
-    private Arrow arrow;
-    private Ranger ranger;
+    
     private float times;
     public GameManager gameManager;
     public bool slowingTime;
@@ -18,11 +15,7 @@ public class PowerUps : MonoBehaviour
         slowingTime = false;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         times = 5;
-        spider = GameObject.FindGameObjectWithTag("Spider").GetComponent<Spider>();
-        playerCon = GameObject.Find("Player").GetComponent<PlayerController>();
-      
-        ranger = GameObject.FindGameObjectWithTag("Ranger").GetComponent<Ranger>();
-        
+       
 
     }
 

@@ -9,17 +9,23 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 
-    public float potionsNumber;
+  
     private PlayerHealthManager pH;
+
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI potionsNumberText;
     public TextMeshProUGUI teaNumberText;
+    public Button restart;
+
+    
     public GameObject buttonHealth;
     public GameObject buttonDamage;
     public GameObject buttonSpeed;
+
     public SceneManager sceneManager;
 
-    public float TeaNumber;
+    public int TeaNumber;
+    public int potionsNumber;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,9 +38,20 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Restart();
         potionsNumberText.text = ("") + potionsNumber;
         healthText.text = ("Health ") + pH.currentHealth + ("/") + pH.startHealth;
         teaNumberText.text = ("") + TeaNumber;
+    }
+
+
+    void Restart()
+    {
+        if(pH.currentHealth <= 0)
+        {
+            restart.gameObject.SetActive(true);
+              
+        }
     }
 
 
